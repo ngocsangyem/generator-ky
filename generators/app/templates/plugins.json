@@ -1,0 +1,4 @@
+{
+	"styles": ["src/assets/css/reset.css"],
+	"scripts": ["src/assets/js/ofi.min.js"]
+}

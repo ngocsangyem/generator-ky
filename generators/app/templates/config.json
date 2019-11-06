@@ -1,0 +1,34 @@
+{
+	"port": 9000,
+	"baseUrl": "./",
+	"entries": {
+		"script": "main.+(js|ts)",
+		"css": "main.+(sass|scss)",
+		"dataJson": "data.json"
+	},
+	"directories": {
+		"source": "src/",
+		"app": "app/",
+		"destination": "build",
+		"temporary": "tmp",
+		"component": "components/",
+		"css": "styles/",
+		"assets": "assets/",
+		"scripts": "scripts/",
+		"views": "views/",
+		"images": "img/",
+		"fonts": "fonts/",
+		"data": "data/",
+		"pages": "pages/",
+		"shared": "shared/"
+	},
+	"author": {
+		"name": "[your name]",
+		"version": "v1.0.0",
+		"link": "exaample.com",
+		"lincense": "MIT",
+		"coding": "Coding by [your name]",
+		"phone": "XXXXXXXXXX",
+		"email": "example@email.com"
+	}
+}
