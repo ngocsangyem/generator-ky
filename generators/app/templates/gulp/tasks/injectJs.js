@@ -17,13 +17,6 @@ gulp.task('injectJs', () => {
 	return gulp
 		.src(`${dirs.source}${dirs.app}${dirs.component}index.+(js|ts)`)
 		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
-			})
-		)
-		.pipe(
 			plugins.inject(gulp.src(fileInject, { read: false }), {
 				starttag: '// inject:jsComponentFile',
 				endtag: '// endinject',

@@ -22,13 +22,6 @@ gulp.task('sass', () => {
 	return gulp
 		.src(`${dirs.source}${dirs.app}${entries.css}`)
 		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
-			})
-		)
-		.pipe(
 			plugins.if(
 				!args.production,
 				plugins.sourcemaps.init({

@@ -24,13 +24,6 @@ gulp.task('componentSASS', () => {
 			`${dirs.source}${dirs.app}${dirs.shared}${dirs.component}**/*.+(sass|scss)`,
 			`!${dirs.source}${dirs.app}${dirs.shared}${dirs.component}index.+(sass|scss)`
 		])
-		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
-			})
-		)
 		.on('error', plugins.notify.onError(config.defaultNotification))
 		.pipe(gulp.dest(dest));
 });<% if (htmlOption === 'pug') { %>
@@ -41,13 +34,6 @@ gulp.task('componentPUG', () => {
 			`${dirs.source}${dirs.app}${dirs.pages}${dirs.component}**/*.pug`,
 			`${dirs.source}${dirs.app}${dirs.shared}${dirs.component}**/*.pug`
 		])
-		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
-			})
-		)
 		.pipe(
 			plugins.pug({
 				pretty: '\t'
@@ -70,12 +56,5 @@ gulp.task('componentSCRIPT', () => {
 			`!${dirs.source}${dirs.app}${dirs.pages}${dirs.component}**/*.test.+(js|ts)`,
 			`!${dirs.source}${dirs.app}${dirs.shared}${dirs.component}**/*.test.+(js|ts)`,<% } %>
 		])
-		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
-			})
-		)
 		.pipe(gulp.dest(dest));
 });

@@ -2,9 +2,9 @@
 	"port": 9000,
 	"baseUrl": "./",
 	"entries": {
-		"script": "main.+(js|ts)",
-		"css": "main.+(sass|scss)",
-		"dataJson": "data.json"
+		"script": "main.+(js|ts)",<% if (cssOption === 'sass') { %>
+		"css": "main.+(sass|scss)",<% } if (htmlOption === 'pug') {%>
+		"dataJson": "data.json"<% } %>
 	},
 	"directories": {
 		"source": "src/",

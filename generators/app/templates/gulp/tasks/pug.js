@@ -14,13 +14,6 @@ gulp.task('pug', () => {
 			`!${dirs.source}${dirs.app}${dirs.views}{**/_*,**/_*/**}`
 		])
 		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
-			})
-		)
-		.pipe(
 			plugins.data(function(file) {
 				return JSON.parse(
 					fs.readFileSync(

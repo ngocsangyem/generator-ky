@@ -14,10 +14,10 @@ const defaultNotification = function(err) {
 
 // Load all gulp plugins based on their names
 // EX: gulp-copy -> copy
-export const plugins = gulpLoadPlugins();
+export const plugins = gulpLoadPlugins();<% if (testFramework !== 'none') { %>
 
 // Create karma server
-export const KarmaServer = require('karma').Server;
+export const KarmaServer = require('karma').Server;<% } %>
 
 // Get package.json custom configuration
 export const config = Object.assign({}, cfg, defaultNotification);

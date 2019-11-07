@@ -13,13 +13,6 @@ gulp.task('injectSass', () => {
 	return gulp
 		.src([`${dirs.source}${dirs.app}${dirs.component}index.{sass,scss}`])
 		.pipe(
-			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
-			})
-		)
-		.pipe(
 			plugins.inject(gulp.src(fileInject, { read: false }), {
 				starttag: '// inject:imports',
 				endtag: '// endinject',

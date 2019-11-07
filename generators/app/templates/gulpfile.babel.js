@@ -1,5 +1,6 @@
+<% if (testFramework === 'mocha' || testFramework === 'jasmine') { %>
+import path from 'path';<% } %>
 import gulp from 'gulp';
-import path from 'path';
 import glob from 'glob';
 import { KarmaServer, args } from './gulp/utils';
 
@@ -14,13 +15,11 @@ glob.sync('./gulp/tasks/**/*.js')
 gulp.task(
 	'serve',
 	gulp.series([
-		'clean',
-		// 'injectSass',
-		// 'injectJs',
-		'pug:data',
-		gulp.parallel(
-			'sass',
-			'pug',
+		'clean',<% if (htmlOption === 'pug') { %>
+		'pug:data',<% } %>
+		gulp.parallel(<% if (cssOption === 'sass') { %>
+			'sass',<% } if (htmlOption === 'pug') { %>
+			'pug',<% } %>
 			'browserify',
 			'fonts',
 			'images',
@@ -35,9 +34,9 @@ gulp.task(
 	'build',
 	gulp.series([
 		'clean',
-		gulp.parallel(
-			'pug',
-			'sass',
+		gulp.parallel(<% if (htmlOption === 'pug') { %>
+			'pug',<% } if (cssOption === 'sass') { %>
+			'sass',<% } %>
 			'fonts',
 			'images',
 			'concatCss',
@@ -47,7 +46,6 @@ gulp.task(
 		'zip',
 		'rev',
 		'sitemap',
-		'author',
 		'size',
 		'done'
 	])
@@ -57,20 +55,19 @@ gulp.task(
 	'component',
 	gulp.series([
 		'clean',
-		gulp.parallel(
-			'pug',
-			'sass',
+		gulp.parallel(<% if (htmlOption === 'pug') { %>
+			'pug',<% } if (cssOption === 'sass') { %>
+			'sass',<% } %>
 			'fonts',
 			'images',
 			'concatCss',
 			'concatJs',
 			'browserify'
 		),
-		gulp.parallel('componentSASS', 'componentPUG', 'componentSCRIPT'),
+		gulp.parallel(<% if (cssOption === 'sass') { %>'componentSASS', <% } if (htmlOption === 'pug') { %>'componentPUG', <% } %>'componentSCRIPT'),
 		'zip',
 		'rev',
 		'sitemap',
-		'author',
 		'size',
 		'done'
 	])
@@ -80,16 +77,11 @@ gulp.task(
 // gulp.task('default', gulp.series('clean', 'build'));
 
 // Testing
-gulp.task(
-	'test',
-	gulp.series('eslint', done => {
-		new KarmaServer(
-			{
-				configFile: path.join(__dirname, '/karma.conf.js'),
-				singleRun: !args.watch,
-				autoWatch: args.watch
-			},
-			done
-		).start();
-	})
-);
+// Testing
+gulp.task('test', gulp.series('eslint'<% if (testFramework === 'none') { %>));<% } else { %>, (done) => {
+	new KarmaServer({
+	  configFile: path.join(__dirname, '/karma.conf.js'),
+	  singleRun: !args.watch,
+	  autoWatch: args.watch
+	}, done).start();
+  }));<% } %>
