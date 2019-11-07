@@ -30,7 +30,7 @@ function fileExist(path) {
 }
 const dirs = config.directories;
 let componentName = process.argv[2];
-const defaultExtensions = ['sass', 'pug', 'js', 'test.js', 'json']; // default extensions
+const defaultExtensions = ['sass', 'pug', 'json', 'test.js', 'js']; // default extensions
 const extensions = uniqueArray(defaultExtensions.concat(process.argv.slice(3)));
 
 function handleComponentName() {

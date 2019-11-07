@@ -29,8 +29,8 @@ gulp.task('browserSync', () => {
 	<% if (htmlOption === 'pug') { %>
 	gulp.watch(
 		[
-			`${dirs.source}${dirs.app}${dirs.pages}**/*.+(pug|json)`,
-			`${dirs.source}${dirs.app}${dirs.shared}**/*.+(pug|json)`,
+			`${dirs.source}${dirs.app}${dirs.pages}**/*.pug`,
+			`${dirs.source}${dirs.app}${dirs.shared}**/*.pug`,
 			'./seo.json'
 		],
 		gulp.series('pug')
@@ -81,7 +81,9 @@ gulp.task('browserSync', () => {
 	// Json
 	<% if (htmlOption === 'pug') { %>
 	gulp.watch(
-		[`${dirs.source}${dirs.app}**/*.json`, `./seo.json`],
+		[`${dirs.source}${dirs.app}${dirs.pages}**/*.json`, 
+		`${dirs.source}${dirs.app}${dirs.shared}**/*.json`, 
+		`./seo.json`],
 		gulp.series('pug:data')
 	);<% } %>
 

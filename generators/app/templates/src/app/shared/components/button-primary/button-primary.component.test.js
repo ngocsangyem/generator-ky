@@ -1,4 +1,4 @@
-import ButtonPrimaryComponent from './button-primary.component';
+import ButtonPrimaryComponent from '../button-primary.component';
 describe('ButtonPrimaryComponent View', function() {
 	beforeEach(() => {
 		this.buttonprimary = new ButtonPrimaryComponent();

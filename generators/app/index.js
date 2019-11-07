@@ -47,7 +47,7 @@ module.exports = class extends Generator {
 					'Which ' +
 					'HTML preprocessor'.blue +
 					' would you like to use?',
-				choices: ['Pug', 'Nunjucks'],
+				choices: ['Pug'],
 				when: function(answers_3) {
 					return !answers_3.existingConfig;
 				},
@@ -65,7 +65,7 @@ module.exports = class extends Generator {
 					'What would you like to use to ' +
 					'write styles'.blue +
 					'?',
-				choices: ['Sass', 'PostCSS'],
+				choices: ['Sass'],
 				when: function(answers_5) {
 					return !answers_5.existingConfig;
 				},
@@ -170,18 +170,30 @@ module.exports = class extends Generator {
 
 		// Root file
 		this.copyTpl('gulpfile.babel.js', 'gulpfile.babel.js', templateData);
-		this.copyTpl('.babelrc', '.babelrc', templateData);
+		this.copyTpl('babelrc', '.babelrc', templateData);
 		this.copyTpl('_package.json', 'package.json', templateData);
 		this.copyTpl('README.md', 'README.md', templateData);
+		this.copyTpl('_config.json', 'config.json', templateData);
+		this.copy('_eslintrc.json', 'eslintrc.json', templateData);
 		this.copy(
 			'src/static/img/GitHub-Mark.png',
 			'src/assets/img/GitHub-Mark.png'
 		);
+		this.copy('src/static/css/fonts.css', 'src/assets/css/fonts.css');
+		this.copy('src/static/css/grid.css', 'src/assets/css/grid.css');
+		this.copy('src/static/css/reset.css', 'src/assets/css/reset.css');
+		this.copy('src/static/fonts/Roboto-Bold.ttf', 'src/assets/fonts/Roboto-Bold.ttf');
+		this.copy('src/static/fonts/Roboto-Light.ttf', 'src/assets/fonts/Roboto-Light.ttf');
+		this.copy('src/static/fonts/Roboto-Medium.ttf', 'src/assets/fonts/Roboto-Medium.ttf');
+		this.copy('src/static/fonts/Roboto-Regular.ttf', 'src/assets/fonts/Roboto-Regular.ttf');
+		this.copy('src/static/fonts/Roboto-Thin.ttf', 'src/assets/fonts/Roboto-Thin.ttf');
+		this.copy('src/static/js/ofi.min.js', 'src/assets/js/ofi.min.js');
 
 		this.copy('gitignore', '.gitignore');
 		this.copy('browserslistrc', '.browserslistrc');
-		this.copy('component', 'component.js');
-		this.copy('config.json', 'config.json');
+		if (this.htmlOption === 'pug') {
+			this.copyTpl('component.js', 'component.js');
+		}
 		this.copy('csscomb.json', 'csscomb.json');
 		this.copy('editorconfig', '.editorconfig');
 		this.copy('plugins.json', 'plugins.json');
@@ -508,177 +520,177 @@ module.exports = class extends Generator {
 				);
 				this.copyTpl(
 					'src/app/styles/sass/index.sass',
-					'src/app/styles/sass/index.sass',
+					'src/app/styles/index.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/base/breakpoint.sass',
-					'src/app/styles/sass/base/breakpoint.sass',
+					'src/app/styles/base/breakpoint.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/base/colors.sass',
-					'src/app/styles/sass/base/colors.sass',
+					'src/app/styles/base/colors.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/base/fonts.sass',
-					'src/app/styles/sass/base/fonts.sass',
+					'src/app/styles/base/fonts.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/base/global.sass',
-					'src/app/styles/sass/base/global.sass',
+					'src/app/styles/base/global.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/base/typography.sass',
-					'src/app/styles/sass/base/typography.sass',
+					'src/app/styles/base/typography.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins.sass',
-					'src/app/styles/sass/abstracts/mixins.sass',
+					'src/app/styles/abstracts/mixins.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_array.sass',
-					'src/app/styles/sass/abstracts/functions/_array.sass',
+					'src/app/styles/abstracts/functions/_array.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_colors.sass',
-					'src/app/styles/sass/abstracts/functions/_colors.sass',
+					'src/app/styles/abstracts/functions/_colors.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_complex.sass',
-					'src/app/styles/sass/abstracts/functions/_complex.sass',
+					'src/app/styles/abstracts/functions/_complex.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_exist.sass',
-					'src/app/styles/sass/abstracts/functions/_exist.sass',
+					'src/app/styles/abstracts/functions/_exist.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_helper.sass',
-					'src/app/styles/sass/abstracts/functions/_helper.sass',
+					'src/app/styles/abstracts/functions/_helper.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_input.sass',
-					'src/app/styles/sass/abstracts/functions/_input.sass',
+					'src/app/styles/abstracts/functions/_input.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_isset.sass',
-					'src/app/styles/sass/abstracts/functions/_isset.sass',
+					'src/app/styles/abstracts/functions/_isset.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_length.sass',
-					'src/app/styles/sass/abstracts/functions/_length.sass',
+					'src/app/styles/abstracts/functions/_length.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_number.sass',
-					'src/app/styles/sass/abstracts/functions/_number.sass',
+					'src/app/styles/abstracts/functions/_number.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_rem.sass',
-					'src/app/styles/sass/abstracts/functions/_rem.sass',
+					'src/app/styles/abstracts/functions/_rem.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_replace.sass',
-					'src/app/styles/sass/abstracts/functions/_replace.sass',
+					'src/app/styles/abstracts/functions/_replace.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_return.sass',
-					'src/app/styles/sass/abstracts/functions/_return.sass',
+					'src/app/styles/abstracts/functions/_return.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_size.sass',
-					'src/app/styles/sass/abstracts/functions/_size.sass',
+					'src/app/styles/abstracts/functions/_size.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/functions/_vendors.sass',
-					'src/app/styles/sass/abstracts/functions/_vendors.sass',
+					'src/app/styles/abstracts/functions/_vendors.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_animation.sass',
-					'src/app/styles/sass/abstracts/mixins/_animation.sass',
+					'src/app/styles/abstracts/mixins/_animation.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_arrow.sass',
-					'src/app/styles/sass/abstracts/mixins/_arrow.sass',
+					'src/app/styles/abstracts/mixins/_arrow.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_basic.sass',
-					'src/app/styles/sass/abstracts/mixins/_basic.sass',
+					'src/app/styles/abstracts/mixins/_basic.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_before-after.sass',
-					'src/app/styles/sass/abstracts/mixins/_before-after.sass',
+					'src/app/styles/abstracts/mixins/_before-after.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_border.sass',
-					'src/app/styles/sass/abstracts/mixins/_border.sass',
+					'src/app/styles/abstracts/mixins/_border.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_border-radius.sass',
-					'src/app/styles/sass/abstracts/mixins/_border-radius.sass',
+					'src/app/styles/abstracts/mixins/_border-radius.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_filter.sass',
-					'src/app/styles/sass/abstracts/mixins/_filter.sass',
+					'src/app/styles/abstracts/mixins/_filter.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_flex.sass',
-					'src/app/styles/sass/abstracts/mixins/_flex.sass',
+					'src/app/styles/abstracts/mixins/_flex.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_image.sass',
-					'src/app/styles/sass/abstracts/mixins/_image.sass',
+					'src/app/styles/abstracts/mixins/_image.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_margin_padding.sass',
-					'src/app/styles/sass/abstracts/mixins/_margin_padding.sass',
+					'src/app/styles/abstracts/mixins/_margin_padding.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_position.sass',
-					'src/app/styles/sass/abstracts/mixins/_position.sass',
+					'src/app/styles/abstracts/mixins/_position.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_prefix.sass',
-					'src/app/styles/sass/abstracts/mixins/_prefix.sass',
+					'src/app/styles/abstracts/mixins/_prefix.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_text-shadow.sass',
-					'src/app/styles/sass/abstracts/mixins/_text-shadow.sass',
+					'src/app/styles/abstracts/mixins/_text-shadow.sass',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/sass/abstracts/mixins/_typography.sass',
-					'src/app/styles/sass/abstracts/mixins/_typography.sass',
+					'src/app/styles/abstracts/mixins/_typography.sass',
 					templateData
 				);
 			} else {
@@ -733,173 +745,178 @@ module.exports = class extends Generator {
 					templateData
 				);
 				this.copyTpl(
+					'src/app/styles/scss/index.scss',
+					'src/app/styles/index.scss',
+					templateData
+				);
+				this.copyTpl(
 					'src/app/styles/scss/base/breakpoint.scss',
-					'src/app/styles/scss/base/breakpoint.scss',
+					'src/app/styles/base/breakpoint.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/base/colors.scss',
-					'src/app/styles/scss/base/colors.scss',
+					'src/app/styles/base/colors.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/base/fonts.scss',
-					'src/app/styles/scss/base/fonts.scss',
+					'src/app/styles/base/fonts.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/base/global.scss',
-					'src/app/styles/scss/base/global.scss',
+					'src/app/styles/base/global.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/base/typography.scss',
-					'src/app/styles/scss/base/typography.scss',
+					'src/app/styles/base/typography.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins.scss',
-					'src/app/styles/scss/abstracts/mixins.scss',
+					'src/app/styles/abstracts/mixins.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_array.scss',
-					'src/app/styles/scss/abstracts/functions/_array.scss',
+					'src/app/styles/abstracts/functions/_array.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_colors.scss',
-					'src/app/styles/scss/abstracts/functions/_colors.scss',
+					'src/app/styles/abstracts/functions/_colors.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_complex.scss',
-					'src/app/styles/scss/abstracts/functions/_complex.scss',
+					'src/app/styles/abstracts/functions/_complex.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_exist.scss',
-					'src/app/styles/scss/abstracts/functions/_exist.scss',
+					'src/app/styles/abstracts/functions/_exist.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_helper.scss',
-					'src/app/styles/scss/abstracts/functions/_helper.scss',
+					'src/app/styles/abstracts/functions/_helper.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_input.scss',
-					'src/app/styles/scss/abstracts/functions/_input.scss',
+					'src/app/styles/abstracts/functions/_input.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_isset.scss',
-					'src/app/styles/scss/abstracts/functions/_isset.scss',
+					'src/app/styles/abstracts/functions/_isset.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_length.scss',
-					'src/app/styles/scss/abstracts/functions/_length.scss',
+					'src/app/styles/abstracts/functions/_length.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_number.scss',
-					'src/app/styles/scss/abstracts/functions/_number.scss',
+					'src/app/styles/abstracts/functions/_number.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_rem.scss',
-					'src/app/styles/scss/abstracts/functions/_rem.scss',
+					'src/app/styles/abstracts/functions/_rem.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_replace.scss',
-					'src/app/styles/scss/abstracts/functions/_replace.scss',
+					'src/app/styles/abstracts/functions/_replace.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_return.scss',
-					'src/app/styles/scss/abstracts/functions/_return.scss',
+					'src/app/styles/abstracts/functions/_return.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_size.scss',
-					'src/app/styles/scss/abstracts/functions/_size.scss',
+					'src/app/styles/abstracts/functions/_size.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/functions/_vendors.scss',
-					'src/app/styles/scss/abstracts/functions/_vendors.scss',
+					'src/app/styles/abstracts/functions/_vendors.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_animation.scss',
-					'src/app/styles/scss/abstracts/mixins/_animation.scss',
+					'src/app/styles/abstracts/mixins/_animation.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_arrow.scss',
-					'src/app/styles/scss/abstracts/mixins/_arrow.scss',
+					'src/app/styles/abstracts/mixins/_arrow.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_basic.scss',
-					'src/app/styles/scss/abstracts/mixins/_basic.scss',
+					'src/app/styles/abstracts/mixins/_basic.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_before-after.scss',
-					'src/app/styles/scss/abstracts/mixins/_before-after.scss',
+					'src/app/styles/abstracts/mixins/_before-after.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_border.scss',
-					'src/app/styles/scss/abstracts/mixins/_border.scss',
+					'src/app/styles/abstracts/mixins/_border.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_border-radius.scss',
-					'src/app/styles/scss/abstracts/mixins/_border-radius.scss',
+					'src/app/styles/abstracts/mixins/_border-radius.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_filter.scss',
-					'src/app/styles/scss/abstracts/mixins/_filter.scss',
+					'src/app/styles/abstracts/mixins/_filter.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_flex.scss',
-					'src/app/styles/scss/abstracts/mixins/_flex.scss',
+					'src/app/styles/abstracts/mixins/_flex.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_image.scss',
-					'src/app/styles/scss/abstracts/mixins/_image.scss',
+					'src/app/styles/abstracts/mixins/_image.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_margin_padding.scss',
-					'src/app/styles/scss/abstracts/mixins/_margin_padding.scss',
+					'src/app/styles/abstracts/mixins/_margin_padding.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_position.scss',
-					'src/app/styles/scss/abstracts/mixins/_position.scss',
+					'src/app/styles/abstracts/mixins/_position.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_prefix.scss',
-					'src/app/styles/scss/abstracts/mixins/_prefix.scss',
+					'src/app/styles/abstracts/mixins/_prefix.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_text-shadow.scss',
-					'src/app/styles/scss/abstracts/mixins/_text-shadow.scss',
+					'src/app/styles/abstracts/mixins/_text-shadow.scss',
 					templateData
 				);
 				this.copyTpl(
 					'src/app/styles/scss/abstracts/mixins/_typography.scss',
-					'src/app/styles/scss/abstracts/mixins/_typography.scss',
+					'src/app/styles/abstracts/mixins/_typography.scss',
 					templateData
 				);
 			}

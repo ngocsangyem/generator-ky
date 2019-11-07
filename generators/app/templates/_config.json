@@ -3,7 +3,7 @@
 	"baseUrl": "./",
 	"entries": {
 		"script": "main.+(js|ts)",<% if (cssOption === 'sass') { %>
-		"css": "main.+(sass|scss)",<% } if (htmlOption === 'pug') {%>
+		"css": "main.+(sass|scss)",<% } if (htmlOption === 'pug') { %>
 		"dataJson": "data.json"<% } %>
 	},
 	"directories": {

@@ -1,4 +1,4 @@
-import IndexComponent from './index.component';
+import IndexComponent from '../index.component';
 describe('IndexComponent View', function() {
 	beforeEach(() => {
 		this.index = new IndexComponent();

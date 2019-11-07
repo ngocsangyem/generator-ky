@@ -1,4 +1,4 @@
-import HeaderComponent from './header.component';
+import HeaderComponent from '../header.component';
 describe('HeaderComponent View', function() {
 	beforeEach(() => {
 		this.header = new HeaderComponent();
