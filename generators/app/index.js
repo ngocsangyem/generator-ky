@@ -32,10 +32,22 @@ module.exports = class extends Generator {
 			},
 			{
 				type: 'input',
+				name: 'authorName',
+				message:
+					'Your name'
+			},
+			{
+				type: 'input',
+				name: 'authorEmail',
+				message:
+					'Your email',
+			},
+			{
+				type: 'input',
 				name: 'projectName',
 				message:
 					'What would you like to' + ' name your project'.blue + '?',
-				default: 'Sample',
+				default: path.basename(process.cwd()),
 				when: function(answers_1) {
 					return !answers_1.existingConfig;
 				}
@@ -130,6 +142,8 @@ module.exports = class extends Generator {
 		// Project Info
 		this.projectName = _answers.projectName;
 		// Client
+		this.authorName = _answers.authorName;
+		this.authorEmail = _answers.authorEmail;
 		this.htmlOption = _answers.htmlOption;
 		this.jsFramework = _answers.jsFramework;
 		this.jsOption = _answers.jsOption;
@@ -158,6 +172,8 @@ module.exports = class extends Generator {
 			date: new Date().toISOString().split('T')[0],
 			pkg: this.pkg,
 			projectName: this.projectName,
+			authorName: this.authorName,
+			authorEmail: this.authorEmail,
 			htmlOption: this.htmlOption,
 			jsFramework: this.jsFramework,
 			jsOption: this.jsOption,

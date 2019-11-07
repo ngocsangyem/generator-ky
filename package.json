@@ -1,6 +1,6 @@
 {
 	"name": "generator-ky",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "A powerful generator for creating static page base on yeogurt.",
 	"homepage": "https://github.com/ngocsangyem/generator-ky.git",
 	"author": {
@@ -38,8 +38,7 @@
 		"command-exists": "^1.2.8",
 		"lodash": "^4.17.15",
 		"rimraf": "^3.0.0",
-		"yeoman-generator": "^4.2.0",
-		"yosay": "^2.0.2"
+		"yeoman-generator": "^4.2.0"
 	},
 	"jest": {
 		"testEnvironment": "node"

@@ -1,8 +1,17 @@
 {
 	"name": "<%= projectName.toLowerCase() %>",
-	"version": "1.0.0",
+	"version": "1.1.2",
 	"description": "The build tool for Front-end using Gulp4",
 	"main": "index.js",
+	"author": {
+		"name": "<%= authorName %>",
+		"email": "<%= authorEmail %>",
+		"url": "https://github.com/<%= authorName %>/<%= projectName %>"
+	},
+	"bugs": {
+		"url": "https://github.com/<%= authorName %>/<%= projectName %>/issues"
+	},
+	"homepage": "https://github.com/<%= authorName %>/<%= projectName %>#readme",
 	"scripts": {
 		"start": "set NODE_ENV=development & gulp serve --development",
 		"build": "set NODE_ENV=production & gulp build --production",
@@ -102,5 +111,11 @@
 		"css",
 		"webpack"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"componentOptions": {
+		"test": <% if (testFramework === 'none') { %> false <% } else { %> true <% } %>,
+		"htmlOptions": <% if (htmlOption === 'pug') { %>"pug"<% }  else { %> "" <% } %>,
+		"cssOptions": <% if (cssOption === 'sass') { %>"sass"<% }  else { %> "" <% } %>,
+		"sassSyntax": <% if (cssOption === 'sass' && sassSyntax === 'sass') { %>"sass"<% }  else if(cssOption === 'sass' && sassSyntax === 'scss') { %> "scss" <% } %>
+	}
 }
