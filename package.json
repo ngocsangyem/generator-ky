@@ -1,6 +1,6 @@
 {
 	"name": "generator-ky",
-	"version": "1.0.0",
+	"version": "1.1.2",
 	"description": "A powerful generator for creating static page base on yeogurt.",
 	"homepage": "https://github.com/ngocsangyem/generator-ky.git",
 	"author": {
