@@ -33,14 +33,12 @@ module.exports = class extends Generator {
 			{
 				type: 'input',
 				name: 'authorName',
-				message:
-					'Your name'
+				message: 'Your name'
 			},
 			{
 				type: 'input',
 				name: 'authorEmail',
-				message:
-					'Your email',
+				message: 'Your email'
 			},
 			{
 				type: 'input',
@@ -198,11 +196,26 @@ module.exports = class extends Generator {
 		this.copy('src/static/css/fonts.css', 'src/assets/css/fonts.css');
 		this.copy('src/static/css/grid.css', 'src/assets/css/grid.css');
 		this.copy('src/static/css/reset.css', 'src/assets/css/reset.css');
-		this.copy('src/static/fonts/Roboto-Bold.ttf', 'src/assets/fonts/Roboto-Bold.ttf');
-		this.copy('src/static/fonts/Roboto-Light.ttf', 'src/assets/fonts/Roboto-Light.ttf');
-		this.copy('src/static/fonts/Roboto-Medium.ttf', 'src/assets/fonts/Roboto-Medium.ttf');
-		this.copy('src/static/fonts/Roboto-Regular.ttf', 'src/assets/fonts/Roboto-Regular.ttf');
-		this.copy('src/static/fonts/Roboto-Thin.ttf', 'src/assets/fonts/Roboto-Thin.ttf');
+		this.copy(
+			'src/static/fonts/Roboto-Bold.ttf',
+			'src/assets/fonts/Roboto-Bold.ttf'
+		);
+		this.copy(
+			'src/static/fonts/Roboto-Light.ttf',
+			'src/assets/fonts/Roboto-Light.ttf'
+		);
+		this.copy(
+			'src/static/fonts/Roboto-Medium.ttf',
+			'src/assets/fonts/Roboto-Medium.ttf'
+		);
+		this.copy(
+			'src/static/fonts/Roboto-Regular.ttf',
+			'src/assets/fonts/Roboto-Regular.ttf'
+		);
+		this.copy(
+			'src/static/fonts/Roboto-Thin.ttf',
+			'src/assets/fonts/Roboto-Thin.ttf'
+		);
 		this.copy('src/static/js/ofi.min.js', 'src/assets/js/ofi.min.js');
 
 		this.copy('gitignore', '.gitignore');
@@ -256,25 +269,15 @@ module.exports = class extends Generator {
 		);
 		// Gulp files
 		this.copyTpl('gulp/utils.js', 'gulp/utils.js', templateData);
-		this.copyTpl(
-			'gulp/helpers/capitalize.js',
-			'gulp/helpers/capitalize.js',
-			templateData
-		);
-		this.copyTpl(
-			'gulp/helpers/remove-dash.js',
-			'gulp/helpers/remove-dash.js',
-			templateData
-		);
-		this.copyTpl(
+		this.copy('gulp/helpers/capitalize.js', 'gulp/helpers/capitalize.js');
+		this.copy('gulp/helpers/remove-dash.js', 'gulp/helpers/remove-dash.js');
+		this.copy(
 			'gulp/helpers/remove-extension.js',
-			'gulp/helpers/remove-extension.js',
-			templateData
+			'gulp/helpers/remove-extension.js'
 		);
-		this.copyTpl(
+		this.copy(
 			'gulp/helpers/remove-vietnamese.js',
-			'gulp/helpers/remove-vietnamese.js',
-			templateData
+			'gulp/helpers/remove-vietnamese.js'
 		);
 		// this.copyTpl(
 		// 	'gulp/tasks/author.js',
@@ -291,37 +294,18 @@ module.exports = class extends Generator {
 			'gulp/tasks/browserSync.js',
 			templateData
 		);
-		this.copyTpl(
-			'gulp/tasks/clean.js',
-			'gulp/tasks/clean.js',
-			templateData
-		);
+		this.copy('gulp/tasks/clean.js', 'gulp/tasks/clean.js');
 		this.copyTpl(
 			'gulp/tasks/component.js',
 			'gulp/tasks/component.js',
 			templateData
 		);
-		this.copyTpl(
-			'gulp/tasks/concat.js',
-			'gulp/tasks/concat.js',
-			templateData
-		);
-		this.copyTpl('gulp/tasks/done.js', 'gulp/tasks/done.js', templateData);
-		this.copyTpl(
-			'gulp/tasks/eslint.js',
-			'gulp/tasks/eslint.js',
-			templateData
-		);
-		this.copyTpl(
-			'gulp/tasks/fonts.js',
-			'gulp/tasks/fonts.js',
-			templateData
-		);
-		this.copyTpl(
-			'gulp/tasks/images.js',
-			'gulp/tasks/images.js',
-			templateData
-		);
+		this.copy('gulp/tasks/concat.js', 'gulp/tasks/concat.js');
+		this.copy('gulp/tasks/done.js', 'gulp/tasks/done.js');
+		this.copy('gulp/tasks/eslint.js', 'gulp/tasks/eslint.js');
+		this.copy('gulp/tasks/fonts.js', 'gulp/tasks/fonts.js');
+		this.copy('gulp/tasks/images.js', 'gulp/tasks/images.js');
+		this.copy('gulp/tasks/author.js', 'gulp/tasks/author.js');
 		// this.copyTpl(
 		// 	'gulp/tasks/injectJs.js',
 		// 	'gulp/tasks/injectJs.js',
@@ -333,24 +317,12 @@ module.exports = class extends Generator {
 		// 	templateData
 		// );
 		if (this.htmlOption === 'pug') {
-			this.copyTpl(
-				'gulp/tasks/pug.js',
-				'gulp/tasks/pug.js',
-				templateData
-			);
-			this.copyTpl(
-				'gulp/tasks/pug-data.js',
-				'gulp/tasks/pug-data.js',
-				templateData
-			);
+			this.copy('gulp/tasks/pug.js', 'gulp/tasks/pug.js');
+			this.copy('gulp/tasks/pug-data.js', 'gulp/tasks/pug-data.js');
 		}
 		this.copyTpl('gulp/tasks/rev.js', 'gulp/tasks/rev.js', templateData);
 		if (this.cssOption === 'sass') {
-			this.copyTpl(
-				'gulp/tasks/sass.js',
-				'gulp/tasks/sass.js',
-				templateData
-			);
+			this.copy('gulp/tasks/sass.js', 'gulp/tasks/sass.js');
 		}
 		this.copyTpl(
 			'gulp/tasks/sitemap.js',

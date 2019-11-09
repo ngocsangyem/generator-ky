@@ -46,6 +46,7 @@ gulp.task(
 		'zip',
 		'rev',
 		'sitemap',
+		'author',
 		'size',
 		'done'
 	])
@@ -68,6 +69,7 @@ gulp.task(
 		'zip',
 		'rev',
 		'sitemap',
+		'author',
 		'size',
 		'done'
 	])
@@ -76,7 +78,6 @@ gulp.task(
 // Default task
 // gulp.task('default', gulp.series('clean', 'build'));
 
-// Testing
 // Testing
 gulp.task('test', gulp.series('eslint'<% if (testFramework === 'none') { %>));<% } else { %>, (done) => {
 	new KarmaServer({

@@ -15,7 +15,7 @@ const postCssPlugins = [
 		order: 'concentric-css'
 	})
 ];
-
+<% if (cssOption === 'sass') { %>
 gulp.task('componentSASS', () => {
 	return gulp
 		.src([
@@ -26,7 +26,7 @@ gulp.task('componentSASS', () => {
 		])
 		.on('error', plugins.notify.onError(config.defaultNotification))
 		.pipe(gulp.dest(dest));
-});<% if (htmlOption === 'pug') { %>
+});<% } if (htmlOption === 'pug') { %>
 
 gulp.task('componentPUG', () => {
 	return gulp
@@ -41,6 +41,7 @@ gulp.task('componentPUG', () => {
 		)
 		.on('error', function(err) {
 			plugins.util.log(err);
+			plugins.notify.onError(config.defaultNotification);
 		})
 		.on('error', plugins.notify.onError(config.defaultNotification))
 		.pipe(gulp.dest(dest));
