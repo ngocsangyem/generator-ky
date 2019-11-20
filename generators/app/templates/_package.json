@@ -121,6 +121,12 @@
 		"test": <% if (testFramework === 'none') { %> false <% } else { %> true <% } %>,
 		"htmlOptions": <% if (htmlOption === 'pug') { %>"pug"<% }  else { %> "" <% } %>,
 		"cssOptions": <% if (cssOption === 'sass') { %>"sass"<% }  else { %> "" <% } %>,
-		"sassSyntax": <% if (cssOption === 'sass' && sassSyntax === 'sass') { %>"sass"<% }  else if(cssOption === 'sass' && sassSyntax === 'scss') { %> "scss" <% } %>
+		"jsOptions": "javascript",
+		"extensions": {
+			"html": <% if (htmlOption === 'pug') { %>".pug"<% }  else { %> "" <% } %>,
+			"script": ".js",<% if (testFramework !== 'none') { %>
+			"test": ".test.js",<% } %>
+			"css": <% if (cssOption === 'sass' && sassSyntax === 'sass') { %>".sass"<% }  else if (cssOption === 'sass' && sassSyntax === 'scss') { %> ".scss" <% } else { %> "" <% } %>
+		}
 	}
 }
