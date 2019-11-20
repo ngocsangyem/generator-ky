@@ -19,8 +19,9 @@ gulp.task(
 		'pug:data',<% } %>
 		gulp.parallel(<% if (cssOption === 'sass') { %>
 			'sass',<% } if (htmlOption === 'pug') { %>
-			'pug',<% } %>
-			'browserify',
+			'pug',<% } if (jsOption == 'browserify') { %>
+			'browserify',<% } else if (jsOption == 'webpack') { %>
+			'scripts',<% } %>
 			'fonts',
 			'images',
 			'concatCss',
@@ -40,8 +41,9 @@ gulp.task(
 			'fonts',
 			'images',
 			'concatCss',
-			'concatJs',
-			'browserify'
+			'concatJs',<% if (jsOption == 'browserify') { %>
+			'browserify',<% } else if (jsOption == 'webpack') { %>
+			'scripts',<% } %>
 		),
 		'zip',
 		'rev',
@@ -62,8 +64,9 @@ gulp.task(
 			'fonts',
 			'images',
 			'concatCss',
-			'concatJs',
-			'browserify'
+			'concatJs',<% if (jsOption == 'browserify') { %>
+			'browserify',<% } else if (jsOption == 'webpack') { %>
+			'scripts',<% } %>
 		),
 		gulp.parallel(<% if (cssOption === 'sass') { %>'componentSASS', <% } if (htmlOption === 'pug') { %>'componentPUG', <% } %>'componentSCRIPT'),
 		'zip',
