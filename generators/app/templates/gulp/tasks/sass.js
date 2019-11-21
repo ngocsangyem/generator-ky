@@ -1,10 +1,17 @@
-import gulp from 'gulp';
-import autoprefixer from 'autoprefixer';
-import Fiber from 'fibers';
-import gcmq from 'gulp-group-css-media-queries';
-import cssDeclarationSorter from 'css-declaration-sorter';
+import gulp from "gulp";
+import autoprefixer from "autoprefixer";
+import Fiber from "fibers";
+import gcmq from "gulp-group-css-media-queries";
+import cssDeclarationSorter from "css-declaration-sorter";
 
-import { plugins, args, config, taskTarget, browserSync } from '../utils';
+import {
+	plugins,
+	args,
+	config,
+	taskTarget,
+	browserSync,
+	reportError
+} from "../utils";
 
 const dirs = config.directories;
 const entries = config.entries;
@@ -14,18 +21,16 @@ const postCssPlugins = [
 		grid: true
 	}),
 	cssDeclarationSorter({
-		order: 'concentric-css'
+		order: "concentric-css"
 	})
 ];
 
-gulp.task('sass', () => {
+gulp.task("sass", () => {
 	return gulp
 		.src(`${dirs.source}${dirs.app}${entries.css}`)
 		.pipe(
 			plugins.plumber({
-				errorHandler: plugins.notify.onError(
-					'Error: <%= error.message %>'
-				)
+				errorHandler: reportError
 			})
 		)
 		.pipe(
@@ -39,14 +44,14 @@ gulp.task('sass', () => {
 		.pipe(
 			plugins.sass({
 				fiber: Fiber,
-				outputStyle: 'expanded',
+				outputStyle: "expanded",
 				precision: 10
 			})
 		)
-		.on('error', function(err) {
+		.on("error", function(err) {
 			plugins.util.log(err);
 		})
-		.on('error', plugins.notify.onError(config.defaultNotification))
+		.on("error", plugins.notify.onError(config.defaultNotification))
 		.pipe(plugins.postcss(postCssPlugins))
 		.pipe(plugins.if(!args.production, gcmq()))
 		.pipe(
@@ -57,7 +62,7 @@ gulp.task('sass', () => {
 				})
 			)
 		)
-		.pipe(plugins.if(!args.production, plugins.sourcemaps.write('./')))
+		.pipe(plugins.if(!args.production, plugins.sourcemaps.write("./")))
 		.pipe(gulp.dest(dest))
 		.pipe(
 			browserSync.reload({
