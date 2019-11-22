@@ -1,0 +1,9 @@
+extends ../../layouts/layout
+
+block var
+	- title = '<%= name.replace(/\./g, "-") %>'
+	- bodyClass = '<%= name.replace(/\./g, "-").toLowerCase() %>'
+
+
+block main
+	h1 Hello! This is page <%= name.replace(/\./g, "-").toLowerCase() %>

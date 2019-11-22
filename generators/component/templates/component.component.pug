@@ -1,0 +1,6 @@
+mixin <%= name.toLowerCase() %>(data)
+	- data = data || {}
+	- data.class = data.class || ''
+
+	div(class=spec.class)&attributes(attributes)
+		p This is <%= _.pascalCase(name) %>Component
