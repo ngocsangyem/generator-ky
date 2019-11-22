@@ -59,6 +59,14 @@ module.exports = {
 		{
 			src: "travis.yml",
 			dest: ".travis.yml"
+		},
+		{
+			src: "seo.json",
+			dest: "seo.json"
+		},
+		{
+			src: "component.js",
+			dest: "component.js"
 		}
 	]
 };

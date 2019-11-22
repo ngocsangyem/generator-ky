@@ -14,7 +14,7 @@ const karmaConf = function(config) {
 		basePath: '',
 
 		// testing framework to use (jasmine/mocha/qunit/...)
-		frameworks: ['browserify'<% if (testFramework === 'jasmine') { %>, 'jasmine'<% } else if (testFramework === 'mocha'){ %>, 'mocha', 'chai'<% } %>],
+		frameworks: [<% if (jsOption == 'browserify') { %>'browserify',<% } else if (jsOption == 'webpack') { %> 'webpack',<% } if (testFramework === 'jasmine') { %> 'jasmine'<% } else if (testFramework === 'mocha'){ %> 'mocha', 'chai'<% } %>],
 
 		// list of files / patterns to load in the browser
 		files: [testFiles],
@@ -22,12 +22,12 @@ const karmaConf = function(config) {
 		// list of files to exclude
 		exclude: [],
 
-		preprocessors: preprocessors,
+		preprocessors: preprocessors,<% if (jsOption == 'browserify') { %>
 
 		browserify: {
 			debug: true,
 			transform: [require('envify'), require('babelify')]
-		},
+		},<% } %>
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'

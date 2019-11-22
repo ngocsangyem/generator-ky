@@ -238,14 +238,6 @@ module.exports = class extends Generator {
 			this.copyTpl(file.src, file.dest, templateData);
 		});
 
-		if (this.htmlOption === "pug") {
-			this.copyTpl("component.js", "component.js");
-		}
-
-		if (this.htmlOption === "pug") {
-			this.copy("seo.json", "seo.json");
-		}
-
 		this.scriptTpl.files.forEach(file => {
 			this.copyTpl(file.src, file.dest, templateData);
 		});
