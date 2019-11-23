@@ -15,6 +15,10 @@ module.exports = {
 		{
 			src: "_config.json",
 			dest: "config.json"
+		},
+		{
+			src: "README.md",
+			dest: "README.md"
 		}
 	]
 };

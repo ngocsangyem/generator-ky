@@ -5,10 +5,6 @@ module.exports = {
 			dest: ".babelrc"
 		},
 		{
-			src: "README.md",
-			dest: "README.md"
-		},
-		{
 			src: "_eslintrc.json",
 			dest: "eslintrc.json"
 		},
