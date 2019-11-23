@@ -1,4 +1,4 @@
-export default class IndexComponent {
+export class IndexComponent {
 	constructor() {
 		console.log("This is IndexComponent");
 	}
