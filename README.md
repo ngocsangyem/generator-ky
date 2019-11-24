@@ -52,7 +52,7 @@ At present, I officially aim to support the last two versions of the following b
 -   Safari
 -   Internet Explorer
 
-This is not to say that gulp-simple cannot be used in browsers older than those reflected, but merely that my focus will be on ensuring our layouts work great in the above.
+This is not to say that generator-ky cannot be used in browsers older than those reflected, but merely that my focus will be on ensuring our layouts work great in the above.
 
 ## Prerequisites
 
