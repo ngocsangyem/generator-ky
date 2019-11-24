@@ -1,6 +1,6 @@
 {
 	"name": "generator-ky",
-	"version": "2.1.3",
+	"version": "2.1.4",
 	"description": "A powerful generator for creating static page base on yeogurt.",
 	"homepage": "https://github.com/ngocsangyem/generator-ky.git",
 	"author": {
@@ -13,7 +13,21 @@
 	],
 	"main": "generators/index.js",
 	"keywords": [
-		"generator-ky ky-generator html5 css3 sass scss pug es5 es6 gulp gulp-cli gulp4 browsersync browserify",
+		"generator-ky",
+		"ky-generator",
+		"html5",
+		"css3",
+		"sass",
+		"scss",
+		"pug",
+		"es5",
+		"es6",
+		"gulp-cli",
+		"gulp4",
+		"browsersync",
+		"browserify",
+		"webpack",
+		"webpack4",
 		"yeoman-generator"
 	],
 	"devDependencies": {
