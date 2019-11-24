@@ -1,4 +1,4 @@
-# generator-ky [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-ky [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 > A powerful generator for creating static page base on yeogurt.
 
@@ -403,9 +403,7 @@ If you find yourself running into issues during installation or running the tool
 
 Give a ⭐️ if this project helped you!
 
-## License
-
-MIT © [ngocsangyem](https://ngocsangyem.github.io/)
+> Thanks you [larsonjj](https://github.com/larsonjj) - This project was base on [generator-yeogurt](https://github.com/larsonjj/generator-yeogurt).
 
 [npm-image]: https://badge.fury.io/js/generator-ky.svg
 [npm-url]: https://npmjs.org/package/generator-ky
