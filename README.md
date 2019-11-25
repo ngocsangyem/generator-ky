@@ -403,7 +403,7 @@ If you find yourself running into issues during installation or running the tool
 
 Give a ⭐️ if this project helped you!
 
-> Thanks you [larsonjj](https://github.com/larsonjj) - This project was base on [generator-yeogurt](https://github.com/larsonjj/generator-yeogurt).
+> Thank you [larsonjj](https://github.com/larsonjj) - This project was base on [generator-yeogurt](https://github.com/larsonjj/generator-yeogurt).
 
 [npm-image]: https://badge.fury.io/js/generator-ky.svg
 [npm-url]: https://npmjs.org/package/generator-ky
