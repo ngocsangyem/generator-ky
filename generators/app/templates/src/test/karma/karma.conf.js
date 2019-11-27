@@ -6,7 +6,7 @@ import path from 'path';
 const dirs = config.directories;
 const testFiles = path.join(__dirname, dirs.source, '**/*.test.js');
 let preprocessors = {};
-preprocessors[testFiles] = ['browserify'];
+preprocessors[testFiles] = [<% if (jsOption == 'browserify') { %>'browserify'<% } else if (jsOption == 'webpack') { %> 'webpack'<% } %>];
 
 const karmaConf = function(config) {
 	config.set({

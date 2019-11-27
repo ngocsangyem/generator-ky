@@ -84,8 +84,8 @@ gulp.task(
 // Testing
 gulp.task('test', gulp.series('eslint'<% if (testFramework === 'none') { %>));<% } else { %>, (done) => {
 	new KarmaServer({
-	  configFile: path.join(__dirname, '/karma.conf.js'),
-	  singleRun: !args.watch,
-	  autoWatch: args.watch
+		configFile: path.join(__dirname, '/karma.conf.js'),
+		singleRun: !args.watch,
+		autoWatch: args.watch
 	}, done).start();
-  }));<% } %>
+}));<% } %>

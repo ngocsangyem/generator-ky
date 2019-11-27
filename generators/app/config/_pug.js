@@ -5,10 +5,6 @@ module.exports = {
 			dest: "component.js"
 		},
 		{
-			src: "seo.json",
-			dest: "seo.json"
-		},
-		{
 			src: "gulp/tasks/pug.js",
 			dest: "gulp/tasks/pug.js"
 		},
@@ -21,24 +17,12 @@ module.exports = {
 			dest: "src/app/pages/components/footer/footer.component.pug"
 		},
 		{
-			src: "src/app/pages/components/footer/footer.component.json",
-			dest: "src/app/pages/components/footer/footer.component.json"
-		},
-		{
 			src: "src/app/pages/components/header/header.component.pug",
 			dest: "src/app/pages/components/header/header.component.pug"
 		},
 		{
-			src: "src/app/pages/components/header/header.component.json",
-			dest: "src/app/pages/components/header/header.component.json"
-		},
-		{
 			src: "src/app/pages/views/home/index.component.pug",
 			dest: "src/app/pages/views/home/index.component.pug"
-		},
-		{
-			src: "src/app/pages/views/home/index.component.json",
-			dest: "src/app/pages/views/home/index.component.json"
 		},
 		{
 			src: "src/app/pages/layouts/layout.pug",

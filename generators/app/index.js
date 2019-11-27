@@ -20,6 +20,7 @@ var scss = require("./config/_scss");
 var testing = require("./config/_testing");
 var browserifyBundle = require("./config/_browserify");
 var webpackBundle = require("./config/_webpack");
+var dataJson = require("./config/_data");
 
 module.exports = class extends Generator {
 	constructor(args, opts) {
@@ -36,6 +37,7 @@ module.exports = class extends Generator {
 		this.testing = testing;
 		this.browserifyBundle = browserifyBundle;
 		this.webpackBundle = webpackBundle;
+		this.dataJson = dataJson;
 	}
 
 	initializing() {
@@ -247,6 +249,10 @@ module.exports = class extends Generator {
 		});
 
 		this.gulpTpl.files.forEach(file => {
+			this.copyTpl(file.src, file.dest, templateData);
+		});
+
+		this.dataJson.files.forEach(file => {
 			this.copyTpl(file.src, file.dest, templateData);
 		});
 
